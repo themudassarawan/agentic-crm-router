@@ -14,7 +14,7 @@ export default function LeadForm() {
     e.preventDefault();
     
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL || "PUT_YOUR_WEBHOOK_URL_HERE";      
+      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL
       console.log("Sending data to:", webhookUrl); 
       
       const response = await fetch(webhookUrl, {
