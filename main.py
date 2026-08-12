@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-
 app = FastAPI()
 
 class Lead(BaseModel):
@@ -10,19 +9,20 @@ class Lead(BaseModel):
     company_size: str
     industry: str
     primary_goal: str
+    isUrgent: bool = False
 
 @app.post("/score-lead")
 async def score_lead(lead: Lead):
     score = 0
     
-    # 1. Firmographic Scoring (Max 40 points)
+    # 1. Firmographic Scoring 
     if "gmail.com" not in lead.email and "yahoo.com" not in lead.email:
-        score += 10  # Valid corporate domain
+        score += 10  
         
     if lead.company_size == "1000+":
-        score += 40
+        score += 60
     elif lead.company_size == "500-1000":
-        score += 20
+        score += 40
     elif lead.company_size == "200-500":
         score += 10
     elif lead.company_size == "50-200":
@@ -31,9 +31,8 @@ async def score_lead(lead: Lead):
     if lead.industry.lower() in ["saas", "finance", "technology"]:
         score += 10
 
-    # 2. Intent Scoring / NLP Analysis (Max 60 points)
-    urgency_keywords = ["immediately", "urgent", "need", "approved budget"]
-    if any(word in lead.primary_goal.lower() for word in urgency_keywords):
+    # 2. Intent Scoring / Checkbox Analysis
+    if lead.isUrgent:
         score += 30
         
     contextual_keywords = ["automation", "integration", "workflow", "ai"]
@@ -48,4 +47,9 @@ async def score_lead(lead: Lead):
     else:
         tier = "Cold"
 
-    return {"lead_name": lead.name, "total_score": score, "classification": tier}
+    return {
+        "lead_name": lead.name, 
+        "total_score": score, 
+        "classification": tier,
+        "isUrgent": lead.isUrgent
+    }

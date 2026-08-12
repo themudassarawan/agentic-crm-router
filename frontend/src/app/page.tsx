@@ -7,14 +7,15 @@ export default function LeadForm() {
     email: "",
     company_size: "1-50",
     industry: "technology",
+    isUrgent: false,
     primary_goal: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL
+      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL;
       console.log("Sending data to:", webhookUrl); 
       
       const response = await fetch(webhookUrl, {
@@ -95,6 +96,19 @@ export default function LeadForm() {
                   <option value="saas">SaaS</option>
                 </select>
               </div>
+          </div>
+
+          <div className="flex items-center mt-2">
+            <input
+              type="checkbox"
+              id="urgent-checkbox"
+              checked={formData.isUrgent}
+              onChange={(e) => setFormData({ ...formData, isUrgent: e.target.checked })}
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+            />
+            <label htmlFor="urgent-checkbox" className="ml-2 text-sm font-medium text-gray-700 cursor-pointer">
+              This request is urgent
+            </label>
           </div>
 
           <div>
