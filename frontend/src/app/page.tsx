@@ -37,42 +37,52 @@ export default function LeadForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <div className="bg-white max-w-lg w-full rounded-2xl shadow-xl p-8 border border-gray-100">
-        <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">
-          Project Enquiry
-        </h2>
+    <div className="min-h-screen bg-slate-50 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] flex items-center justify-center p-6 md:p-12 font-sans text-slate-900">
+      
+      <div className="max-w-3xl w-full bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-800"></div>
         
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-            <input
-              type="text"
-              placeholder="Name"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            />
+        <div className="p-8 md:p-12 lg:px-16 lg:py-14">
+          <div className="mb-10 border-b border-slate-100 pb-8">
+            <h1 className="text-3xl md:text-4xl font-light tracking-tight text-slate-900">
+              Agentic CRM <span className="font-semibold">Router</span>
+            </h1>
+            <p className="mt-3 text-slate-500 text-lg">
+              Experience real-time AI lead scoring and automated pipeline routing.
+            </p>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
-            <input
-              type="email"
-              placeholder="name@company.com"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Company Size</label>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-800 focus:bg-white transition-colors"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Work Email</label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-800 focus:bg-white transition-colors"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Company Size</label>
                 <select
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-700"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-800 focus:bg-white transition-colors appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%207l3%203%203-3%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[right_1rem_center] bg-no-repeat cursor-pointer"
                   value={formData.company_size}
                   onChange={(e) => setFormData({ ...formData, company_size: e.target.value })}
                 >
@@ -85,9 +95,9 @@ export default function LeadForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Industry</label>
+                <label className="block text-sm font-medium text-slate-700 mb-2">Industry</label>
                 <select
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-700"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-800 focus:bg-white transition-colors appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%207l3%203%203-3%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[right_1rem_center] bg-no-repeat cursor-pointer"
                   value={formData.industry}
                   onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                 >
@@ -96,40 +106,43 @@ export default function LeadForm() {
                   <option value="saas">SaaS</option>
                 </select>
               </div>
-          </div>
+            </div>
 
-          <div className="flex items-center mt-2">
-            <input
-              type="checkbox"
-              id="urgent-checkbox"
-              checked={formData.isUrgent}
-              onChange={(e) => setFormData({ ...formData, isUrgent: e.target.checked })}
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
-            />
-            <label htmlFor="urgent-checkbox" className="ml-2 text-sm font-medium text-gray-700 cursor-pointer">
-              This request is urgent
-            </label>
-          </div>
+            <div className="flex items-center gap-3 bg-emerald-50/50 p-4 rounded-xl border border-emerald-100/80">
+              <input
+                type="checkbox"
+                id="urgent-checkbox"
+                checked={formData.isUrgent}
+                onChange={(e) => setFormData({ ...formData, isUrgent: e.target.checked })}
+                className="w-5 h-5 text-emerald-600 bg-white border-emerald-200 rounded focus:ring-emerald-500 focus:ring-offset-1 cursor-pointer accent-emerald-600"
+              />
+              <label htmlFor="urgent-checkbox" className="block text-sm font-medium text-emerald-900 cursor-pointer">
+                Urgent Request
+              </label>
+            </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Primary Goal or Pain Point</label>
-            <textarea
-              placeholder="Describe your primary goal or workflow pain point..."
-              required
-              rows={4}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-              value={formData.primary_goal}
-              onChange={(e) => setFormData({ ...formData, primary_goal: e.target.value })}
-            />
-          </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Project Details</label>
+              <textarea
+                required
+                rows={4}
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-800 focus:bg-white transition-colors resize-none"
+                value={formData.primary_goal}
+                onChange={(e) => setFormData({ ...formData, primary_goal: e.target.value })}
+              />
+            </div>
 
-          <button 
-            type="submit" 
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out mt-4"
-          >
-            Submit Request
-          </button>
-        </form>
+            <div className="pt-4">
+              <button 
+                type="submit" 
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-4 px-6 rounded-xl shadow-sm transition-all duration-200 ease-in-out text-lg"
+              >
+                Submit Details
+              </button>
+            </div>
+            
+          </form>
+        </div>
       </div>
     </div>
   );
